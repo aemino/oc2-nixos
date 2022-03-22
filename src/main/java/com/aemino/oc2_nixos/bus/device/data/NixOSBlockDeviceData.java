@@ -10,8 +10,8 @@ import org.apache.logging.log4j.Logger;
 import li.cil.oc2.api.bus.device.data.BlockDeviceData;
 import li.cil.sedna.api.device.BlockDevice;
 import li.cil.sedna.device.block.ByteBufferBlockDevice;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public final class NixOSBlockDeviceData extends ForgeRegistryEntry<BlockDeviceData> implements BlockDeviceData {
@@ -38,7 +38,7 @@ public final class NixOSBlockDeviceData extends ForgeRegistryEntry<BlockDeviceDa
     }
 
     @Override
-    public ITextComponent getDisplayName() {
-        return new StringTextComponent("NixOS");
+    public Component getDisplayName() {
+        return new TextComponent("NixOS");
     }
 }

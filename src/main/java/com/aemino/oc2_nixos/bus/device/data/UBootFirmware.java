@@ -10,8 +10,8 @@ import org.apache.logging.log4j.Logger;
 import li.cil.oc2.api.bus.device.data.Firmware;
 import li.cil.sedna.api.memory.MemoryMap;
 import li.cil.sedna.memory.MemoryMaps;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public final class UBootFirmware extends ForgeRegistryEntry<Firmware> implements Firmware {
@@ -20,14 +20,9 @@ public final class UBootFirmware extends ForgeRegistryEntry<Firmware> implements
     @Override
     public boolean run(final MemoryMap memory, final long startAddress) {
         try {
-            if (UBoot.getFirmware() == null) {
-                LOGGER.info("U-Boot firmware InputStream is null");
-            } else {
-                LOGGER.info("U-Boot firmware InputStream is non-null");
-            }
-
             MemoryMaps.store(memory, startAddress, UBoot.getFirmware());
             MemoryMaps.store(memory, startAddress + 0x200000, UBoot.getBootloader());
+
             return true;
         } catch (final IOException e) {
             LOGGER.error(e);
@@ -36,7 +31,7 @@ public final class UBootFirmware extends ForgeRegistryEntry<Firmware> implements
     }
 
     @Override
-    public ITextComponent getDisplayName() {
-        return new StringTextComponent("U-Boot");
+    public Component getDisplayName() {
+        return new TextComponent("U-Boot");
     }
 }

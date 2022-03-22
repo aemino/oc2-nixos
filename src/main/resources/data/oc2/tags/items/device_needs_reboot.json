@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "oc2_nixos:flash_memory_custom",
+    "oc2_nixos:hard_drive_custom"
+  ]
+}

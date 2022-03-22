@@ -1,0 +1,2 @@
+apply from: 'minecraft.gradle'
+rootProject.name = "${mod_id}-${minecraft_version}-${minecraft_sdk}"

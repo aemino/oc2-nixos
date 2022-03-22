@@ -1,0 +1,6 @@
+{
+  "replace": false,
+  "values": [
+    "oc2_nixos:flash_memory_custom"
+  ]
+}
